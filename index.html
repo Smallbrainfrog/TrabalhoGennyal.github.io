@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Gennyal</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="MainJS" href="main.js">
+    <link rel="icon" type="image/x-icon" href="assets/icons/PGicon.jpg">
+</head>
+<body id="body">
+    <div class="header" id="header">
+        <button onclick="toggleSidebar()" class="btn_icon_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </button>
+        <a href="https://gennygomes.com.br">
+        <div class="logo_header">
+            <img src="assets/icons/Logo.jpeg" alt="Logo Genny" class="img_logo_header">
+        </a>
+        </div>
+        <div class="navigation_header" id="navigation_header">
+            <button onclick="toggleSidebar()" class="btn_icon_header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+            <a href="index.html" class="active">Geral</a>
+            <a href="geografia.html">Geografia</a>
+            <a href="Quimica.html">Química</a>
+            <a href="matematica.html">Matemática</a>
+        </div>
+    </div>
+    <div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+        <h1>Genny Gomes</h1>
+        <h2>Introdução</h2>
+    </div>
+    <div class="campo">
+        
+        <p>Bem-vindo ao <a class="a" href="https://gennygomes.com.br">Centro Educacional Genny Gomes!</a> 
+
+            Explore conosco a rica história e o vibrante presente dos Trabalhadores Rurais de Caxambu. Localizado no coração da cidade, nosso centro é dedicado a preservar e celebrar a cultura, os costumes e o trabalho árduo dos agricultores desta região única.
+            
+            Com uma abordagem educacional holística, oferecemos programas que não apenas ensinam, mas também conectam nossos alunos com suas raízes e identidade rural.</p>
+        
+    </div>
+    <div class="mapa">
+       <div class="campo2" ><iframe class="mapa1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d777.7679319833056!2d-44.93536633012747!3d-21.984142909827384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa695a59a244abf%3A0xc4e021c64b5f7e8f!2sCentro%20Educacional%20Genny%20Gomes!5e0!3m2!1spt-BR!2sbr!4v1718926965352!5m2!1spt-BR!2sbr" height="300px"></iframe></div> 
+    </div> 
+
+        <div class="campo">
+            <p> Nossa missão é cultivar não apenas conhecimento acadêmico, mas também um profundo respeito pela terra e pelas tradições que sustentam nossa cidade.
+            
+                Explore nosso site para descobrir mais sobre nossos cursos, eventos culturais, e como você pode se envolver e apoiar nossa missão de valorizar e fortalecer os Trabalhadores Rurais de Caxambu. Junte-se a nós nesta jornada de aprendizado e descoberta!</p>        
+        </div>
+
+</body>
+
+<script>
+    
+    var header           = document.getElementById('header');
+    var navigationHeader = document.getElementById('navigation_header');
+    var content          = document.getElementById('content');
+    var showSidebar      = false;
+
+    function toggleSidebar()
+    {
+        showSidebar = !showSidebar;
+        if(showSidebar)
+        {
+            navigationHeader.style.marginLeft = '-10vw';
+            navigationHeader.style.animationName = 'showSidebar';
+            content.style.filter = 'blur(2px)';
+        }
+        else
+        {
+            navigationHeader.style.marginLeft = '-100vw';
+            navigationHeader.style.animationName = '';
+            content.style.filter = '';
+        }
+    }
+
+    function closeSidebar()
+    {
+        if(showSidebar)
+        {
+            showSidebar = true;
+            toggleSidebar();
+        }
+    }
+
+    window.addEventListener('resize', function(event) {
+        if(window.innerWidth > 768 && showSidebar) 
+        {  
+            showSidebar = true;
+            toggleSidebar();
+        }
+    });
+
+
+</script>
+</html>
